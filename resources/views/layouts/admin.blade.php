@@ -35,8 +35,8 @@
 
    
    <div class="container-fluid py-4">
-      <h1>Dina Ahmed </h1>
-      <div class="row">
+      @yield('content')
+       {{-- <div class="row">
       @yield('row')
       </div>
       <div class="row">
@@ -47,7 +47,7 @@
             </div>
             <div class="row mb-4">
                @yield('row mb-4')
-               </div>
+               </div>  --}}
       @include("layouts.inc.adminfooter")
    </div>
 </main>
