@@ -2,7 +2,9 @@
 @section('content')
    <div class="card">
        <div class="card-body">
-           <h1> kkkkkkkkkkk</h1>
+           <h1> category</h1>
+           
+          
         </div>
     </div>
 @endsection
