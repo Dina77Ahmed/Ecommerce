@@ -53,7 +53,7 @@
                    @endif
 
                     <div class="col-nd-12">
-                        <input class=" mb-3 form-control" type="file" name="image" >
+                        <input class=" mb-3 " type="file" name="image" >
                     </div>
 
                     <div class="col-md-12 ">

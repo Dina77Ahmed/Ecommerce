@@ -9,17 +9,17 @@
     <hr class="horizontal light mt-0 mb-2">
     <div class="collapse navbar-collapse  w-auto " id="sidenav-collapse-main">
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="">
+        <li class="nav-item  ">
+          <a class="nav-link text-white {{ Request::is('dashboard') ? 'active bg-gradient-primary':'' }} " href="{{ url('dashboard') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">dashboard</i>
             </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
+            <span class="nav-link-text ms-1 ">Dashboard Home</span>
           </a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link text-white " href="{{ url('categories') }}">
+        <li class="nav-item ">
+          <a class="nav-link text-white {{ Request::is('categories') ? 'active bg-gradient-primary':'' }} " href="{{ url('categories') }}">
           
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
@@ -29,8 +29,8 @@
         </li>
 
 
-        <li class="nav-item">
-          <a class="nav-link text-white " href="{{ url('add-category') }}">
+        <li class="nav-item ">
+          <a class="nav-link text-white {{ Request::is('add-category') ? 'active bg-gradient-primary':''}} " href="{{ url('add-category') }}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
