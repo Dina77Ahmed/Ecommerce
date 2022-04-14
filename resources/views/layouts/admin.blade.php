@@ -25,6 +25,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('admin/css/material-dashboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/custom.css') }}" rel="stylesheet">
 
     <!-- CSS Files -->
     {{-- <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.1" rel="stylesheet" /> --}}
