@@ -22,7 +22,7 @@
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->description }}</td>
                             <td>
-                                <img src="{{ asset('assets/uploads/category/' . $item->image) }}" class="w-25" alt="Image is here">
+                                <img src="{{ asset('assets/uploads/category/' . $item->image) }}" class="cate-image" alt="Image is here">
                             </td>
                             <td>
                                 <a href="{{url('edit-category/'.$item->id )}}" class="btn bg-gradient-success">Edit</a>

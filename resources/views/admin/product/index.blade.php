@@ -9,8 +9,10 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+                        <th>Category</th>
                         <th>Name</th>
-                        <th>Description</th>
+                        <th>Original Price</th>
+                        <th>Selling price</th>
                         <th>Image</th>
                         <th>Action</th>
                     </tr>
@@ -19,14 +21,16 @@
                     @foreach ( $products as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
+                            <td>{{ $item->category->name}}</td>
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->description }}</td>
+                            <td>{{ $item->original_price }}</td>
+                            <td>{{ $item->selling_price }}</td>
                             <td>
-                                <img src="{{ asset('assets/uploads/products/' . $item->image) }}" class="w-25" alt="Image is here">
+                                <img src="{{ asset('assets/uploads/products/' . $item->image) }}" class="cate-image " alt="Image is here">
                             </td>
                             <td>
-                                <a href="#" class="btn bg-gradient-success">Edit</a>
-                                <a href="#" class="btn bg-gradient-danger">Delete</a>
+                                <a href="{{ url('edit-product/'.$item->id) }}" class="btn bg-gradient-success">Edit</a>
+                                <a href="{{ url('delete-product/'.$item->id) }}" class="btn bg-gradient-danger ">Delete</a>
                             </td>
                         </tr>
                     @endforeach
