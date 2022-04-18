@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
     <div class="container">
       <a class=" navbar-brand " href="{{url('/')}}">
-   <span class="coll" >Blue Moon</span>  
-   <i class="fas fa-moon coll"></i>
+   <span class="coll" >Blue </span><img class="si" src="{{ asset('assets/uploads/category/moon.png') }}" alt="Category image">
+   
         </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
