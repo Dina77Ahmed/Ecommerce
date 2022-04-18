@@ -26,10 +26,12 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('frontend/css/custom.css') }}" rel="stylesheet">
+    
     <link href="{{ asset('frontend/css/bootstrap5.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('frontend/css/custom.css') }}" />
     <link href="{{ asset('frontend/css/owl.carousel.min.css') }}" rel="stylesheet">
     <link href="{{ asset('frontend/css/owl.theme.default.min.css') }}" rel="stylesheet">
+    
    
 
    </head>
