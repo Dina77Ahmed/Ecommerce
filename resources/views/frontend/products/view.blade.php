@@ -5,11 +5,18 @@
 @section('content')
     <div class="py-3 mb-4 shadow-sm bg-primary border-top">
         <div class="container">
-            <h5 class="mb-0">Collections / {{ $products->category->name }}/ {{ $products->name }} </h5>
+            <h5 class="mb-0">
+               
+                <a class="link-dec" href="{{ url('category/') }}"> Collections </a>/
+                <a class="link-dec" href="{{  url('view-category/'. $products->category->slug) }}">
+                    {{ $products->category->name }}
+                    </a>
+                    /{{ $products->name }}
+             </h5>
         </div>
     </div>
     <div class="container">
-        <div class="card shadow">
+        <div class="card shadow product_data">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 border-right">
@@ -39,11 +46,15 @@
                         @endif
                         <div class="row mt-2">
                             <div class="col-md-2">
+                                <input type="hidden" value="{{ $products->id }}" class="prod_id">
                                 <label for="Quantity">Quantity</label>
-                               
+
                                 <div class="input-group text-center mb-3" style="width: 120px">
                                     <button class="input-group-text decrement-btn">-</button>
-                                    <input type="text" name="quantity " value="1" class="form-control qty-input text-center " />
+
+                                    <input type="text" name="quantity " value="1"
+                                        class="form-control qty-input text-center " />
+
                                     <button class="input-group-text increment-btn">+</button>
                                 </div>
 
@@ -52,7 +63,7 @@
                                 <br />
                                 <button type="button" class="btn btn-success me-3 ms-3 float-start">Add to Wishlist <li
                                         class="fa fa-heart  text-danger"></li></button>
-                                <button type="button" class="btn btn-primary me-3 float-start ">Add to Cart<li
+                                <button type="button" class="btn btn-primary me-3 float-start addToCartBtn">Add to Cart<li
                                         class="fa fa-shopping-cart text-warning "></li></button>
                             </div>
                         </div>
@@ -74,16 +85,43 @@
 @section('scripts')
 
     <script>
-        $(document).ready(function() 
-        {
+        $(document).ready(function() {
+            $('.addToCartBtn').click(function(e) {
+                e.preventDefault();
+                var product_id = $(this).closest('.product_data').find('.prod_id').val();
+                var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    method: "POST",
+                    url: "{{route('cart.add')}}",
+                    data: {
+                        'product_id': product_id,
+                        'product_qty': product_qty,
+                    },
+
+
+                    success: function(response) {
+                        swal(response.status);
+
+                    }
+
+                });
+
+
+            });
             $('.increment-btn').click(function(e) {
                 e.preventDefault();
 
                 var inc_value = $('.qty-input').val();
                 var value = parseInt(inc_value, 10);
                 value = isNaN(value) ? 0 : value;
-                if (value < 10) 
-                {
+                if (value < 10) {
                     value++;
                     $('.qty-input').val(value);
                 }
@@ -93,12 +131,11 @@
 
             $('.decrement-btn').click(function(e) {
                 e.preventDefault();
-                
+
                 var dec_value = $('.qty-input').val();
                 var value = parseInt(dec_value, 10);
                 value = isNaN(value) ? 0 : value;
-                if (value > 1) 
-                {
+                if (value > 1) {
                     value--;
                     $('.qty-input').val(value);
                 }

@@ -5,7 +5,11 @@
 @section('content')
 <div class="py-3 mb-4 shadow-sm bg-primary border-top">
     <div class="container">
-        <h5 class="mb-0">Collections / {{ $category->name }} </h5>
+        <h5 class="mb-0">
+             
+            <a class="link-dec" href="{{ url('category/') }}">Collections </a> 
+            /{{ $category->name }}
+        </h5>
     </div>
 </div>
 <div class="py-5">
@@ -14,7 +18,7 @@
             <h2  class="mb-2"> {{$category->name}}</h2>
                 @foreach ($products as $prod)
                     <div class="col-md-3 mb-3">
-                        <a class="link-dec" href="{{ url('category/'.$category->slug. '/'.$prod->slug) }}">
+                        <a class="link-dec" href="{{ url('category/'.$category->slug.'/'.$prod->slug) }}">
                         <div class="card">
                              <img src="{{ asset('assets/uploads/products/'. $prod->image) }}" alt="Product image">
                               <div class="card-body">
