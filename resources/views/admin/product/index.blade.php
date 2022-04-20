@@ -11,7 +11,7 @@
                         <th>Id</th>
                         <th>Category</th>
                         <th>Name</th>
-                        <th>Original Price</th>
+                        {{-- <th>Original Price</th> --}}
                         <th>Selling price</th>
                         <th>Image</th>
                         <th>Action</th>
@@ -23,7 +23,7 @@
                             <td>{{ $item->id }}</td>
                             <td>{{ $item->category->name}}</td>
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->original_price }}</td>
+                            {{-- <td>{{ $item->original_price }}</td> --}}
                             <td>{{ $item->selling_price }}</td>
                             <td>
                                 <img src="{{ asset('assets/uploads/products/' . $item->image) }}" class="cate-image " alt="Image is here">

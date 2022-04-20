@@ -5,16 +5,13 @@
         <div class="col-lg-12">
           <ul class="nav nav-footer justify-content-center justify-content-lg-end">
             <li class="nav-item">
-              <a href="#" class="nav-link pe-0 text-muted" target="_blank">About us</a>
+              <a href="{{'aboutus/'}}" class="nav-link pe-0 text-muted" >About us</a>
             </li> 
             <li class="nav-item">
-                <a href="#" class="nav-link pe-0 text-muted" target="_blank">Contact</a>
+                <a href="{{'contact/'}}" class="nav-link pe-0 text-muted" >Contact</a>
               </li> 
             <li class="nav-item">
-                <a href="#" class="nav-link pe-0 text-muted" target="_blank">Services</a>
-              </li> 
-            <li class="nav-item">
-                <a href="#" class="nav-link pe-0 text-muted" target="_blank">About</a>
+                <a href="{{'about/'}}" class="nav-link pe-0 text-muted" >About</a>
               </li> 
           </ul>
         </div>

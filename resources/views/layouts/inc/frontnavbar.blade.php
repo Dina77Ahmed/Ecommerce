@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light ">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  
     <div class="container">
       <a class=" navbar-brand " href="{{url('/')}}">
    <span class="coll" >Blue </span><img class="si" src="{{ asset('assets/uploads/category/moon.png') }}" alt="Category image">
@@ -14,6 +15,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{url('category')}}">Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('cart')}}">Cart</a>
           </li>
           @guest
           @if (Route::has('login'))
@@ -56,4 +60,6 @@
         </ul>
       </div>
     </div>
+    
   </nav>
+  

@@ -11,7 +11,7 @@
                 <a class="link-dec" href="{{  url('view-category/'. $products->category->slug) }}">
                     {{ $products->category->name }}
                     </a>
-                    /{{ $products->name }}
+                    / <a class="link-dec" href="{{  url('category/'. $products->category->slug.'/'.$products->slug) }}">{{ $products->name }}</a>
              </h5>
         </div>
     </div>
@@ -115,33 +115,7 @@
 
 
             });
-            $('.increment-btn').click(function(e) {
-                e.preventDefault();
-
-                var inc_value = $('.qty-input').val();
-                var value = parseInt(inc_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value < 10) {
-                    value++;
-                    $('.qty-input').val(value);
-                }
-
-
-            });
-
-            $('.decrement-btn').click(function(e) {
-                e.preventDefault();
-
-                var dec_value = $('.qty-input').val();
-                var value = parseInt(dec_value, 10);
-                value = isNaN(value) ? 0 : value;
-                if (value > 1) {
-                    value--;
-                    $('.qty-input').val(value);
-                }
-
-
-            });
+            
         });
     </script>
 @endsection
