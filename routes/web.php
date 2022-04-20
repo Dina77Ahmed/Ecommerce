@@ -25,6 +25,7 @@ use App\Http\Controllers\Frontend\CartController;
 // });
 
 Route::get('/',[FrontendController::class,'index']);
+
 Route::get('category',[FrontendController::class,'category']);
 Route::get('view-category/{slug}',[FrontendController::class,'viewcategory']);
 Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
@@ -42,7 +43,9 @@ Route::middleware(['auth'])->group(function (){
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth', 'isAdmin'])->group(function () {
+    
     Route::get ('/dashboard','Admin\FrontendController@index');
+   
     Route::get('categories','Admin\CategoryController@index');
     Route::get('add-category','Admin\CategoryController@add');
     Route::post('insert-category','Admin\CategoryController@insert');
@@ -55,6 +58,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('edit-product/{id}', [ProductController::class, 'edit']);
     Route::put('update-product/{id}', [ProductController::class, 'update']);
     Route::get('delete-product/{id}', [ProductController::class, 'destroy']);
+   
     Route::get('about','Admin\FrontendController@about');
     Route::get('aboutus','Admin\FrontendController@aboutus');
     Route::get('contact','Admin\FrontendController@contact');
