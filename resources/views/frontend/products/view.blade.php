@@ -7,11 +7,11 @@
         <div class="container">
             <h5 class="mb-0">
                
-                <a class="link-dec" href="{{ url('category/') }}"> Collections </a>/
+                <a class="link-dec" href="{{ url('category/') }}"> Collections </a>>
                 <a class="link-dec" href="{{  url('view-category/'. $products->category->slug) }}">
                     {{ $products->category->name }}
                     </a>
-                    / <a class="link-dec" href="{{  url('category/'. $products->category->slug.'/'.$products->slug) }}">{{ $products->name }}</a>
+                    >><a class="link-dec" href="{{  url('category/'. $products->category->slug.'/'.$products->slug) }}">{{ $products->name }}</a>
              </h5>
         </div>
     </div>

@@ -17,7 +17,7 @@
             <a class="nav-link" href="{{url('category')}}">Category</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url('cart')}}">Cart</a>
+            <a class="nav-link" href="{{url('cart')}}"> Cart</a>
           </li>
           @guest
           @if (Route::has('login'))

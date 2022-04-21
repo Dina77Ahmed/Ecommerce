@@ -8,7 +8,7 @@
         <h5 class="mb-0">
              
             <a class="link-dec" href="{{ url('category/') }}">Collections </a> 
-            /<a class="link-dec" href="{{ url('view-category/'.$category->slug) }}">{{ $category->name }}</a>
+            ><a class="link-dec" href="{{ url('view-category/'.$category->slug) }}">{{ $category->name }}</a>
         </h5>
     </div>
 </div>
