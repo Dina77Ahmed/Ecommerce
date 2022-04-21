@@ -59,7 +59,7 @@
             <div class="card-footer">
                 <h6>
                   <span>Total price:LE {{$total}} </span>
-                  <button class="btn btn-outline-success ms-5"><span>Checkout <i class="fas fa-check-circle"></i></span></button>
+                  <a href="{{ url('checkout') }}" class="btn btn-outline-success ms-5"><span>Checkout <i class="fas fa-check-circle"></i></span></a>
                 </h6>
             </div>
         </div>
