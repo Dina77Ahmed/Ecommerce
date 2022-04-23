@@ -3,9 +3,9 @@
     Checkout
 @endsection
 @section('content')
-<style>
-    
-</style>
+    <style>
+
+    </style>
     <div class="contener">
         <div class="row">
             <div class="col-md-7">
@@ -63,7 +63,31 @@
             <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
-                        Order Details
+                        <h6>Order Details</h6>
+                        <hr>
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($cartitems as $item)
+                                <tr>
+                                    <td> {{ $item->products->name }}</td>
+                                    <td> {{ $item->prod_qty }}</td>
+                                    <td> {{ $item->products->selling_price}}</td>
+                                   
+                                </tr>
+                                @endforeach
+
+                            </tbody>
+                        </table>
+                        <hr>
+                        <button class="btn btn-success float-end">Place order</button>
+
                     </div>
                 </div>
             </div>

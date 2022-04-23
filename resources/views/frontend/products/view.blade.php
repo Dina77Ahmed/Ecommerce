@@ -6,13 +6,14 @@
     <div class="py-3 mb-4 shadow-sm bg-primary border-top">
         <div class="container">
             <h5 class="mb-0">
-               
+
                 <a class="link-dec" href="{{ url('category/') }}"> Collections </a>>
-                <a class="link-dec" href="{{  url('view-category/'. $products->category->slug) }}">
+                <a class="link-dec" href="{{ url('view-category/' . $products->category->slug) }}">
                     {{ $products->category->name }}
-                    </a>
-                    >><a class="link-dec" href="{{  url('category/'. $products->category->slug.'/'.$products->slug) }}">{{ $products->name }}</a>
-             </h5>
+                </a>
+                >><a class="link-dec"
+                    href="{{ url('category/' . $products->category->slug . '/' . $products->slug) }}">{{ $products->name }}</a>
+            </h5>
         </div>
     </div>
     <div class="container">
@@ -61,10 +62,17 @@
                             </div>
                             <div class="col-md-9">
                                 <br />
-                                <button type="button" class="btn btn-success me-3 ms-3 float-start">Add to Wishlist <li
-                                        class="fa fa-heart  text-danger"></li></button>
-                                <button type="button" class="btn btn-primary me-3 float-start addToCartBtn">Add to Cart<li
+                                @if ($products->qty > 0)
+                                   
+                                    <button type="button" class="btn btn-primary me-3 float-start addToCartBtn">Add to Cart<li
                                         class="fa fa-shopping-cart text-warning "></li></button>
+                                @else
+                                   
+                                    <button type="button" class="btn btn-success me-3 ms-3 float-start">Add to Wishlist <li
+                                        class="fa fa-heart  text-danger"></li></button>
+                                @endif
+                               
+                               
                             </div>
                         </div>
                     </div>
@@ -99,7 +107,7 @@
 
                 $.ajax({
                     method: "POST",
-                    url: "{{route('cart.add')}}",
+                    url: "{{ route('cart.add') }}",
                     data: {
                         'product_id': product_id,
                         'product_qty': product_qty,
@@ -115,7 +123,7 @@
 
 
             });
-            
+
         });
     </script>
 @endsection
