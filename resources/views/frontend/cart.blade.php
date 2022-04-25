@@ -7,7 +7,7 @@
         <div class="container">
             <h5 class="mb-0">
 
-                <a class="link-dec" href="{{ url('/') }}"> Home </a>/
+                <a class="link-dec" href="{{ url('/') }}"> Home </a> >
                 <a class="link-dec" href="{{ url('cart') }}">
                     Cart
                 </a>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-md-3 my-auto">
                             <input type="hidden" class="prod_id" value="{{ $item->prod_id }}">
-                            @if ($item->products->qty > $item->prod_qty)
+                            @if ($item->products->qty >= $item->prod_qty)
                                 <label for="Quantity">Quantity</label>
                                 <div class="input-group text-center mb-3" style="width: 130px;">
                                     <button class="input-group-text changeQuantity decrement-btn ">-</button>

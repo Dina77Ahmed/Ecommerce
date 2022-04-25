@@ -68,10 +68,10 @@
                         <input type="checkbox" name="trending" {{ $products->trending == '1' ? 'checked' : '' }}>
                     </div>
 
-                    <div class="col-md-6 mb-3">
+                    {{-- <div class="col-md-6 mb-3">
                         <label for="">Popular</label>
                         <input type="checkbox" name="popular" {{ $products->popular == '1' ? 'checked' : '' }}>
-                    </div>
+                    </div> --}}
                     <div class="col-md-12 mb-3">
                         <label for="">Meta Title</label>
                         <input type="text" class="form-control" name="meta_title" value="{{ $products->meta_title }}">

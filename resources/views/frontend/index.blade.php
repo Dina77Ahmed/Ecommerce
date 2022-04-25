@@ -13,7 +13,7 @@
                     @foreach ($featured_products as $prod)
                         <div class="item">
                             <div class="card">
-                                <img src="{{ asset('assets/uploads/products/'. $prod->image) }}" alt="Product image">
+                                <img src="{{ asset('assets/uploads/products/'. $prod->image) }}" style="height: 300px" alt="Product image">
                                 <div class="card-body">
                                     <h5>{{ $prod->name }}</h5>
                                     <span class="float-start">{{ $prod->selling_price }}</span>
@@ -36,7 +36,7 @@
                         <div class="item">
                             <a class="link-dec" href="{{url('view-category',$tcategory->slug)}}">
                             <div class="card">
-                                <img src="{{ asset('assets/uploads/category/'. $tcategory->image) }}" alt="Category image">
+                                <img src="{{ asset('assets/uploads/category/'. $tcategory->image) }}"style="height: 300px" alt="Category image">
                                 <div class="card-body">
                                     <h5>{{ $tcategory->name }}</h5>
                                     <p>
