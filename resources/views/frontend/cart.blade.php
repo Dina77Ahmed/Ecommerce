@@ -47,7 +47,7 @@
 
                                 @php $total+= $item->products->selling_price*$item->prod_qty;@endphp
                             @else
-                                <h6>Out of Stock</h6>
+                                <h6>Out of Stock we just have {{$item->products->qty}} </h6>
                             @endif
 
                         </div>
