@@ -38,7 +38,11 @@
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">
-                  My profile
+                  My Profile
+              
+                 </a>
+                 <a class="dropdown-item" href="{{url('my-orders')}}">
+                  My Orders
               
                  </a>
 
