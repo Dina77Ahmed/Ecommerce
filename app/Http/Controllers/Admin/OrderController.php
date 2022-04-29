@@ -18,4 +18,16 @@ class OrderController extends Controller
         $orders=Order::where('id',$id)->first();
        return view('admin.orders.view',compact('orders'));
     }
+    public function updateorder(Request $request,$id)
+    {
+        $orders=Order::find($id);
+        $orders->status=$request->input('order_status');
+        $orders->update();
+        return redirect('orders')->with('status',"order updated successfully");
+    }
+    public function orderhistory()
+    {  $orders=Order::where('status','1')->get();
+        return view('admin.orders.history',compact('orders'));
+       
+    }
 }
