@@ -49,4 +49,5 @@ class FrontendController extends Controller
             return redirect('/')->with('status', "No such category found");
         }
     }
+   
 }

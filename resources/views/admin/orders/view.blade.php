@@ -1,4 +1,4 @@
-@extends('layouts.front')
+@extends('layouts.admin')
 @section('title')
     View Order
 @endsection
@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="card-header bg-primary">
                    <h4 class="text-white">Order View
-                    <a href="{{ url('my-orders') }}" class="btn btn-warning text-white float-end">Back</a>
+                    <a href="{{ url('orders') }}" class="btn btn-white text-primary float-end">Back</a>
                    </h4>
                   
                     </div>

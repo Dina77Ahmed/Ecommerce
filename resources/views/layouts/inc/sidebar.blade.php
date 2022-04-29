@@ -65,6 +65,24 @@
                     <span class="nav-link-text ms-1">Add Products</span>
                 </a>
             </li>
+            <li class="nav-item ">
+                <a class="nav-link text-white {{ Request::is('orders') ? 'active bg-gradient-primary' : '' }}  "
+                    href="{{ url('orders') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">content_paste</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Orders</span>
+                </a>
+            </li>
+            {{-- <li class="nav-item ">
+                <a class="nav-link text-white  {{ Request::is('users') ? 'active bg-gradient-primary' : '' }} "
+                    href="{{ url('users') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10"><i class="fa fa-user me-sm-1"></i></i>
+                    </div>
+                    <span class="nav-link-text ms-1"> Users</span>
+                </a>
+            </li> --}}
 
 
 

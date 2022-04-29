@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
-
 class CartController extends Controller
 {
     //

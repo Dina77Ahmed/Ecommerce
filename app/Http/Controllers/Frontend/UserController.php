@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\OrderItem;
 
-
 class UserController extends Controller
 {
     public function index()

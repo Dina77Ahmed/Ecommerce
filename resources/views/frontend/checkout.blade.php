@@ -98,9 +98,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @php
-                                            $total = 0;
-                                        @endphp
+                                       
                                         @foreach ($cartitems as $item)
                                             <tr>
                                                 <td> {{ $item->products->name }}</td>
@@ -109,7 +107,7 @@
 
 
                                             </tr>
-                                            @php $total+= $item->products->selling_price*$item->prod_qty;@endphp
+                                          
                                         @endforeach
                                        
 
@@ -117,8 +115,7 @@
 
 
                                 </table>
-                                <hr>
-                                <tr><span>Total price: {{ $total }} LE</span></tr>
+                                
                                 <hr>
                                 <button type="submit" class="btn btn-primary float-end w-100">Place order</button>
                             @else

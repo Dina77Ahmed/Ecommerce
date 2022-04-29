@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cart;
 use App\Models\OrderItems;
 use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -56,7 +57,7 @@ class CheckoutController extends Controller
     $cartitems = Cart::where('user_id', Auth::id())->get();
     foreach($cartitems as $item)
     {
-        OrderItems::create([
+        OrderItem::create([
             'order_id' =>$order->id,
             'prod_id' => $item->prod_id,
             'qty'=>$item->prod_qty,
