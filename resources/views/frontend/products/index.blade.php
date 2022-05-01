@@ -20,7 +20,7 @@
                     <div class="col-md-3 mb-3">
                         <a class="link-dec" href="{{ url('category/'.$category->slug.'/'.$prod->slug) }}">
                         <div class="card">
-                             <img src="{{ asset('assets/uploads/products/'. $prod->image) }}" alt="Product image">
+                             <img src="{{ asset('assets/uploads/products/'. $prod->image) }}"style="height: 300px" alt="Product image">
                               <div class="card-body">
                                 <h5>{{ $prod->name }}</h5>
                                 <span class="float-start">{{ $prod->selling_price }} LE</span>

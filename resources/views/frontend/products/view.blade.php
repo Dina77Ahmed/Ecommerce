@@ -50,7 +50,7 @@
                                 <input type="hidden" value="{{ $products->id }}" class="prod_id">
                                 <label for="Quantity">Quantity</label>
 
-                                <div class="input-group text-center mb-3" style="width: 120px">
+                                <div class="input-group text-center " style="width: 120px">
                                     <button class="input-group-text decrement-btn">-</button>
 
                                     <input type="text" name="quantity " value="1"
@@ -58,23 +58,60 @@
 
                                     <button class="input-group-text increment-btn">+</button>
                                 </div>
+                            </div>
+                            <div class="col-md-9 mt-4 ms-3">
+                                @if ($products->qty > 0)
+                                    <button type="button" class="btn btn-primary float-start addToCartBtn">Add to Cart
+                                        <li class="fa fa-shopping-cart text-warning "></li>
+                                    </button>
+                                    @endif
+                                    <button type="button" class="btn btn-success addtowishlist ms-3 float-start">Add to Wishlist
+                                        <li class="fa fa-heart  text-danger"></li></button>
+                                
 
                             </div>
-                            <div class="col-md-9">
-                                <br />
-                                @if ($products->qty > 0)
-                                   
-                                    <button type="button" class="btn btn-primary me-3 float-start addToCartBtn">Add to Cart<li
-                                        class="fa fa-shopping-cart text-warning "></li></button>
-                                @else
-                                   
-                                    <button type="button" class="btn btn-success me-3 ms-3 float-start">Add to Wishlist <li
-                                        class="fa fa-heart  text-danger"></li></button>
-                                @endif
-                               
-                               
-                            </div>
+
                         </div>
+
+
+                        {{-- <div class="row mt-2">
+                            <div class="col-md-9 mb-2">
+                                <div class="col-md-5">
+                                    <select class="form-select mb-3 " aria-label="Default select example">
+                                        <option selected> Size</option>
+                                        <option value="1">S</option>
+                                        <option value="2">M</option>
+                                        <option value="3">L</option>
+                                        <option value="3">XL</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-5">
+                                    <select class="form-select " aria-label="Default select example">
+                                        <option selected> Color</option>
+                                        <option value="1">Red</option>
+                                        <option value="2">Green</option>
+                                        <option value="3">Blue</option>
+                                        <option value="4">Yallow</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> --}}
+
+                        {{-- <div class="row mt-2">
+                            <div class="col-md-9 mb-2"> --}}
+
+                        {{-- @if ($products->qty > 0)
+                                    <button type="button" class="btn btn-primary float-start addToCartBtn">Add to Cart
+                                        <li class="fa fa-shopping-cart text-warning "></li>
+                                    </button>
+                                 @endif
+                                    <button type="button" class="btn btn-success float-start">Add to Wishlist <li
+                                            class="fa fa-heart  text-danger"></li></button>
+                                --}}
+
+                        {{-- </div>
+                        </div> --}}
+
                     </div>
                 </div>
 
@@ -93,37 +130,64 @@
 @section('scripts')
 
     <script>
-        $(document).ready(function() {
-            $('.addToCartBtn').click(function(e) {
-                e.preventDefault();
-                var product_id = $(this).closest('.product_data').find('.prod_id').val();
-                var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+        $(document).ready(function() 
+        {
 
-                $.ajaxSetup({
-                    headers: {
-                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                    }
-                });
+                    $('.addToCartBtn').click(function(e) {
+                        e.preventDefault();
+                        var product_id = $(this).closest('.product_data').find('.prod_id').val();
+                        var product_qty = $(this).closest('.product_data').find('.qty-input').val();
 
-                $.ajax({
-                    method: "POST",
-                    url: "{{ route('cart.add') }}",
-                    data: {
-                        'product_id': product_id,
-                        'product_qty': product_qty,
-                    },
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
 
-
-                    success: function(response) {
-                        swal(response.status);
-
-                    }
-
-                });
+                        $.ajax({
+                            method: "POST",
+                            url: "{{ route('cart.add') }}",
+                            data: {
+                                'product_id': product_id,
+                                'product_qty': product_qty,
+                            },
 
 
-            });
+                            success: function(response) {
+                                swal(response.status);
 
-        });
+                            }
+
+                        });
+
+
+                    });
+                    
+                    $('.addtowishlist').click(function(e) {
+                        e.preventDefault();
+                        var product_id = $(this).closest('.product_data').find('.prod_id').val();
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                            }
+                        });
+
+                        $.ajax({
+                            method: "POST",
+                            url: "{{ route('wishlist.insert') }}",
+                            data: {
+                                'product_id': product_id,
+
+                            },
+                            success: function(response) {
+                                swal(response.status);
+
+                            }
+
+                        });
+
+                    });
+             }); 
+
     </script>
 @endsection

@@ -2,12 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Frontend\FrontendController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Frontend\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,18 +35,22 @@ Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'prod
 Auth::routes();
 Route::post('add-to-cart', [CartController::class, 'addProduct'])->name('cart.add');
 // )->name('cart.delete')
+
 Route::post('delete-cart-item', [CartController::class, 'deleteproduct'])->name('cart.delete');
 // update-cart->name('cart.update')
 
 Route::post('update-cart', [CartController::class, 'updatecart'])->name('cart.update');
 
+Route::post('add-to-wishlist', [WishlistController::class,'add'])->name('wishlist.insert');
 
+//wishlist
 Route::middleware(['auth'])->group(function () {
     Route::get('cart', [CartController::class, 'viewcart']);
     Route::get('checkout', [CheckoutController::class, 'index']);
     Route::post('place-order',[CheckoutController::class, 'placeorder']);
     Route::get('my-orders', [UserController::class, 'index']);
     Route::get('view-order/{id}', [UserController::class, 'view']);
+    Route::get('Wishlist', [WishlistController::class, 'index']);
 
 });
 
@@ -67,7 +73,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::put('update-product/{id}', [ProductController::class, 'update']);
     Route::get('delete-product/{id}', [ProductController::class, 'destroy']);
 
-    Route::get('users',[FrontendController::class,'users']);
+    Route::get('users',[DashboardController::class,'users']);
+    Route::get('view-user/{id}',[DashboardController::class,'viewusers']);
     
     Route::get('orders',[OrderController::class, 'index']);
     Route::get('admin/view-order/{id}',[OrderController::class, 'view']);
@@ -77,6 +84,7 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::get('about', 'Admin\FrontendController@about');
     Route::get('aboutus', 'Admin\FrontendController@aboutus');
     Route::get('contact', 'Admin\FrontendController@contact');
+    
     
 
    
