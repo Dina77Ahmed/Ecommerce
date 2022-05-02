@@ -36,3 +36,59 @@
     </div>
 </div>    
 @endsection
+@section('scripts')
+    <script>
+
+        $(document).ready(function() {
+
+
+            loadcart();
+        loadwishlist() ;
+            
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    function loadcart() {
+        $.ajax({
+
+
+            method: "GET",
+            //cartload.add
+            //url: "/load-cart-data",
+            url: "{{ route('cartload.add') }}",
+            success: function(response) {
+                $('.cart-count').html('');
+                $('.cart-count').html(response.count);
+                // alertresponse.count
+
+            }
+        });
+
+        }
+        function loadwishlist() {
+        $.ajax({
+
+
+            method: "GET",
+            //cartload.add
+            //url: "/load-cart-data",
+            url: "{{ route('wishlistload.add') }}",
+            success: function(response) {
+                $('.wishlist-count').html('');
+                $('.wishlist-count').html(response.count);
+                // alertresponse.count
+               
+
+
+            }
+        });
+
+    }
+    });
+
+    </script>
+@endsection

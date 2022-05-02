@@ -64,10 +64,11 @@
                                     <button type="button" class="btn btn-primary float-start addToCartBtn">Add to Cart
                                         <li class="fa fa-shopping-cart text-warning "></li>
                                     </button>
-                                    @endif
-                                    <button type="button" class="btn btn-success addtowishlist ms-3 float-start">Add to Wishlist
-                                        <li class="fa fa-heart  text-danger"></li></button>
-                                
+                                @endif
+                                <button type="button" class="btn btn-success addtowishlist ms-3 float-start">Add to Wishlist
+                                    <li class="fa fa-heart  text-danger"></li>
+                                </button>
+
 
                             </div>
 
@@ -106,8 +107,7 @@
                                     </button>
                                  @endif
                                     <button type="button" class="btn btn-success float-start">Add to Wishlist <li
-                                            class="fa fa-heart  text-danger"></li></button>
-                                --}}
+                                            class="fa fa-heart  text-danger"></li></button> --}}
 
                         {{-- </div>
                         </div> --}}
@@ -128,66 +128,112 @@
 
 @endsection
 @section('scripts')
-
     <script>
-        $(document).ready(function() 
-        {
-
-                    $('.addToCartBtn').click(function(e) {
-                        e.preventDefault();
-                        var product_id = $(this).closest('.product_data').find('.prod_id').val();
-                        var product_qty = $(this).closest('.product_data').find('.qty-input').val();
-
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            }
-                        });
-
-                        $.ajax({
-                            method: "POST",
-                            url: "{{ route('cart.add') }}",
-                            data: {
-                                'product_id': product_id,
-                                'product_qty': product_qty,
-                            },
+        $(document).ready(function() {
+            loadcart();
+            loadwishlist();
 
 
-                            success: function(response) {
-                                swal(response.status);
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
-                            }
 
-                        });
+            function loadcart() {
+                $.ajax({
 
 
-                    });
-                    
-                    $('.addtowishlist').click(function(e) {
-                        e.preventDefault();
-                        var product_id = $(this).closest('.product_data').find('.prod_id').val();
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                            }
-                        });
+                    method: "GET",
+                    //cartload.add
+                    //url: "/load-cart-data",
+                    url: "{{ route('cartload.add') }}",
+                    success: function(response) {
+                        $('.cart-count').html('');
+                        $('.cart-count').html(response.count);
+                        // alertresponse.count
 
-                        $.ajax({
-                            method: "POST",
-                            url: "{{ route('wishlist.insert') }}",
-                            data: {
-                                'product_id': product_id,
 
-                            },
-                            success: function(response) {
-                                swal(response.status);
+                    }
+                });
 
-                            }
+            }
 
-                        });
+            function loadwishlist() {
+                $.ajax({
 
-                    });
-             }); 
 
+                    method: "GET",
+                    //cartload.add
+                    //url: "/load-cart-data",
+                    url: "{{ route('wishlistload.add') }}",
+                    success: function(response) {
+                        $('.wishlist-count').html('');
+                        $('.wishlist-count').html(response.count);
+                        // alertresponse.count
+
+                    }
+                });
+
+            }
+
+            $('.addToCartBtn').click(function(e) {
+                e.preventDefault();
+                var product_id = $(this).closest('.product_data').find('.prod_id').val();
+                var product_qty = $(this).closest('.product_data').find('.qty-input').val();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    method: "POST",
+                    url: "{{ route('cart.add') }}",
+                    data: {
+                        'product_id': product_id,
+                        'product_qty': product_qty,
+                    },
+
+
+                    success: function(response) {
+                        swal(response.status);
+                        loadcart();
+
+                    }
+
+                });
+
+
+            });
+
+            $('.addtowishlist').click(function(e) {
+                e.preventDefault();
+                var product_id = $(this).closest('.product_data').find('.prod_id').val();
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    method: "POST",
+                    url: "{{ route('wishlist.insert') }}",
+                    data: {
+                        'product_id': product_id,
+
+                    },
+                    success: function(response) {
+                        swal(response.status);
+                        loadwishlist();
+
+                    }
+
+                });
+
+            });
+        });
     </script>
 @endsection
