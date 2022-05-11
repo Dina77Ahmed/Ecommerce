@@ -44,14 +44,15 @@
                             </div>
                             <div class="col-md-1 my-auto">
                                 <input type="hidden" class="prod_id" value="{{ $item->prod_id }}">
-                                @if ($item->products->qty >= $item->prod_qty)
+                                @if ($item->products->qty >= $item->prod_id)
                                     <h6>In Stock</h6>
+                                   
                                 @else
-                                    <h6>Out of Stock we just have {{ $item->products->qty }} </h6>
+                                    <h6>Out of Stock we just have {{ $item->products->qty }} item </h6>
                                 @endif
 
                             </div>
-                            
+                            @if ($item->products->qty >= $item->prod_id)
                             <div class="col-md-2 my-auto">
                                 <button class="btn btn-success addToCartBtn">
 
@@ -59,6 +60,11 @@
                                     <i class="fa fa-shopping-cart"></i>
                                 </button>
                             </div>
+                            @else
+                            <div class="col-md-2 my-auto">
+                            </div>
+
+                            @endif
 
                             <div class="col-md-2 my-auto">
                                 <button class="btn btn-danger remove-wishlist-item ">

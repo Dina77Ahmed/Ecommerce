@@ -9,6 +9,8 @@ use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\CheckoutController;
 use App\Http\Controllers\Frontend\UserController;
 use App\Http\Controllers\Admin\OrderController;
+use App\Http\Controllers\Frontend\RatingController;
+use App\Http\Controllers\Frontend\ReviewController;
 use App\Http\Controllers\Frontend\WishlistController;
 
 /*
@@ -34,9 +36,9 @@ Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'prod
 
 Auth::routes();
 Route::post('add-to-cart', [CartController::class, 'addProduct'])->name('cart.add');
-Route::GET('load-wishlist-data',[WishlistController::class, 'wishlistcount'])->name('wishlistload.add');
+Route::get('load-wishlist-data',[WishlistController::class, 'wishlistcount'])->name('wishlistload.add');
 //cartload.add
-Route::GET('load-cart-data', [CartController::class, 'cartcount'])->name('cartload.add');
+Route::get('load-cart-data', [CartController::class, 'cartcount'])->name('cartload.add');
 // )->name('cart.delete')
 Route::post('delete-wishlist-item', [WishlistController::class, 'deleteitem'])->name('wishlist.delete');
 
@@ -54,9 +56,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('checkout', [CheckoutController::class, 'index']);
     Route::post('place-order',[CheckoutController::class, 'placeorder']);
     Route::get('my-orders', [UserController::class, 'index']);
+    Route::post('add-rating',[RatingController::class,'add']);
+
+    Route::get('add-review/{product_slug}/userreview',[ReviewController::class,'add']);
+    Route::post('add-review',[ReviewController::class,'create']);
+
+
     Route::get('view-order/{id}', [UserController::class, 'view']);
     Route::get('Wishlist', [WishlistController::class, 'index']);
-
+//add-review
 });
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
