@@ -140,7 +140,7 @@
                         </div>
 
 
-                        {{-- <div class="row mt-2">
+                        <div class="row mt-2">
                             <div class="col-md-9 mb-2">
                                 <div class="col-md-5">
                                     <select class="form-select mb-3 " aria-label="Default select example">
@@ -161,7 +161,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div> --}}
+                        </div>
 
                         {{-- <div class="row mt-2">
                             <div class="col-md-9 mb-2"> --}}
@@ -176,19 +176,19 @@
 
                         {{-- </div>
                         </div> --}}
-
+                        <div class="col-md-12">
+                            <hr>
+                            <h2>Description</h2>
+                            <p class="mt-3 ">
+                                {!! $products->description !!}
+                            </p>
+                           </div>
+                           <hr>
                     </div>
                 </div>
 
-                <div class="col-md-12">
-                    <hr>
-                    <h2>Description</h2>
-                    <p class="mt-3 ">
-                        {!! $products->description !!}
-                    </p>
-                   </div>
-                   <hr>
-                    <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
                     <!-- Button trigger modal -->
                     <button class="btn btn-link" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         Rate this product
@@ -199,6 +199,34 @@
                     </a>
 
                 </div>
+            
+            <div class="col-md-8">
+                @foreach ($reviews as $item)
+                    <div class="user-review">
+                         <label class="mb-2" for="">{{ $item->user->name.''.$item->user->lname }}</label>
+                         @if($item->user_id==Auth::id())
+                             <a href="# ">edit</a>
+                         @endif
+                                              
+                         <br>
+                         @if ($item->rating)
+                             @php $user_rated=$item->rating->stars_rated @endphp
+                             @for($i =1; $i<= $user_rated; $i++)
+                                 <i class="fa fa-star checked"></i>
+                             @endfor
+                             @for ($j=$user_rated+1; $j <= 5;$j++)
+                                 <i class="fa fa-star"></i>
+                                      
+                             @endfor
+                         @endif
+                          <small>Reviewed on {{ $item->created_at->format('d M Y') }}</small>
+                         <p class="mt-2">
+                           {{ $item->user_review }}
+                         </p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
             </div>
         </div>
     </div>
