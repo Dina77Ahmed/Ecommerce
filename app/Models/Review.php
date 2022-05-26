@@ -21,10 +21,15 @@ class Review extends Model
 }
 
 
-public function rating()
+// public function rating()
+// {
+
+//     return $this->belongsTo(Rating::class, 'prod_id','prod_id');
+// }
+public function product()
 {
 
-    return $this->belongsTo(Rating::class, 'user_id','user_id');
+    return $this->belongsTo(Product::class, 'prod_id','id');
 }
 
 }

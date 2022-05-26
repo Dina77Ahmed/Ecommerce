@@ -72,8 +72,10 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4 border-right">
-                        <img src="{{ asset('assets/uploads/products/' . $products->image) }}" class="w-100"
-                            alt="">
+                        <div class="inner"> <img src="{{ asset('assets/uploads/products/' . $products->image) }}" class="w-100"
+                            alt=""></div>
+            
+                       
                     </div>
                     <div class="col-md-8">
                         <h2 class="mb-0">
@@ -140,7 +142,7 @@
                         </div>
 
 
-                        <div class="row mt-2">
+                        {{-- <div class="row mt-2">
                             <div class="col-md-9 mb-2">
                                 <div class="col-md-5">
                                     <select class="form-select mb-3 " aria-label="Default select example">
@@ -161,7 +163,7 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         {{-- <div class="row mt-2">
                             <div class="col-md-9 mb-2"> --}}
@@ -205,12 +207,16 @@
                     <div class="user-review">
                          <label class="mb-2" for="">{{ $item->user->name.''.$item->user->lname }}</label>
                          @if($item->user_id==Auth::id())
-                             <a href="# ">edit</a>
+                             <a href="{{url('edit-review/'.$products->slug.'/userreview')}}">edit</a>
                          @endif
                                               
                          <br>
-                         @if ($item->rating)
-                             @php $user_rated=$item->rating->stars_rated @endphp
+                         @php
+                         $rating=App\Models\Rating :: where('prod_id',$products->id)->where('user_id',$item->user->id)->first();
+                         @endphp
+
+                         @if ($rating)
+                             @php $user_rated=$rating->stars_rated @endphp
                              @for($i =1; $i<= $user_rated; $i++)
                                  <i class="fa fa-star checked"></i>
                              @endfor

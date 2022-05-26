@@ -1,82 +1,104 @@
-    body {
-        font-family: 'Ubuntu', sans-serif;
-        /* font-family: 'Work Sans', sans-serif; */
-        /* font-family: 'Playfair Display', serif; */
-        /* font-family: 'Work Sans', sans-serif; */
-    }
-    
-    p {
-        font-family: 'Work Sans', sans-serif;
-    }
-    
-    .details div {
-        font-size: 14px;
-        padding: 5px;
-    }
-    
-    .details label {
-        font-size: 15px;
-        font-weight: 700;
-    }
-    
-    .checkout-form input {
-        font-size: 14px;
-        padding: 7px;
-        font-weight: 400;
-    }
-    
-    .checkout-form label {
-        font-size: 15px;
-        font-weight: 700;
-    }
-    
-    .link-dec {
-        text-decoration: none;
-        color: black;
-    }
-    
-    .coll {
-        color: #0d6efd !important;
-        font-size: 35px;
-        font-weight: 500px;
-        font-family: 'Playfair Display', serif;
-    }
-    
-    .si {
-        width: 35px;
-    }
-    /* rating */
-    
-    .rating-css div {
-        color: #ffe400;
-        font-size: 30px;
-        font-family: sans-serif;
-        font-weight: 800;
-        text-align: center;
-        text-transform: uppercase;
-        padding: 20px 0;
-    }
-    
-    .rating-css input {
-        display: none;
-    }
-    
-    .rating-css input+label {
-        font-size: 60px;
-        text-shadow: 1px 1px 0 #8f8420;
-        cursor: pointer;
-    }
-    
-    .rating-css input:checked+label~label {
-        color: #b4afaf;
-    }
-    
-    .rating-css label:active {
-        transform: scale(0.8);
-        transition: 0.3s ease;
-    }
-    /* End of Star Rating */
-    
-    .checked {
-        color: #ffd900;
-    }
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            /* font-family: 'Work Sans', sans-serif; */
+            /* font-family: 'Playfair Display', serif; */
+            /* font-family: 'Work Sans', sans-serif; */
+        }
+        
+        p {
+            font-family: 'Work Sans', sans-serif;
+        }
+        
+        .details div {
+            font-size: 14px;
+            padding: 5px;
+        }
+        
+        .details label {
+            font-size: 15px;
+            font-weight: 700;
+        }
+        
+        .checkout-form input {
+            font-size: 14px;
+            padding: 7px;
+            font-weight: 400;
+        }
+        
+        .checkout-form label {
+            font-size: 15px;
+            font-weight: 700;
+        }
+        
+        .link-dec {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .coll {
+            color: #0d6efd !important;
+            font-size: 35px;
+            font-weight: 500px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .si {
+            width: 35px;
+        }
+        
+        .search-bar {
+            width: 40%;
+            margin-left: 60px;
+        }
+        
+        .ui-menu {
+            z-index: 3500 !important;
+        }
+        /* rating */
+        
+        .rating-css div {
+            color: #ffe400;
+            font-size: 30px;
+            font-family: sans-serif;
+            font-weight: 800;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 20px 0;
+        }
+        
+        .rating-css input {
+            display: none;
+        }
+        
+        .rating-css input+label {
+            font-size: 60px;
+            text-shadow: 1px 1px 0 #8f8420;
+            cursor: pointer;
+        }
+        
+        .rating-css input:checked+label~label {
+            color: #b4afaf;
+        }
+        
+        .rating-css label:active {
+            transform: scale(0.8);
+            transition: 0.3s ease;
+        }
+        /* End of Star Rating */
+        
+        .checked {
+            color: #ffd900;
+        }
+        /* image effect */
+        
+        .inner {
+            overflow: hidden;
+        }
+        
+        .inner img {
+            transition: all 1.5s ease;
+        }
+        
+        .inner:hover img {
+            transform: scale(1.5);
+        }

@@ -5,6 +5,15 @@
    <span class="coll" >Blue </span><img class="si" src="{{ asset('assets/uploads/category/moon.png') }}" alt="Category image">
    
         </a>
+       <div class="search-bar">
+         <form action="{{url('searchproduct')}}" method="POST">
+          @csrf
+        <div class="input-group">
+          <input type="search" class="form-control" id="search_product"name="product_name" required placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+          <button type="submit" class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></button>
+        </div>
+      </form>
+       </div>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

@@ -13,7 +13,9 @@
                <div class="col-md-3 mb-3">
                 <a class="link-dec" href="{{url('view-category',$cate->slug)}}">
                 <div class="card ">
-                    <img src="{{ asset('assets/uploads/category/'. $cate->image) }}" alt="Category image" style="height: 300px">
+                  <div class="inner">
+                    <img src="{{ asset('assets/uploads/category/'. $cate->image) }}" alt="Category image" style="height: 300px ;width:100%">
+                  </div>
                     <div class="card-body">
                         <h5>{{ $cate->name }}</h5>
                         <p>

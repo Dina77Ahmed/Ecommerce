@@ -33,6 +33,10 @@ Route::get('/', [FrontendController::class, 'index']);
 Route::get('category', [FrontendController::class, 'category']);
 Route::get('view-category/{slug}', [FrontendController::class, 'viewcategory']);
 Route::get('category/{cate_slug}/{prod_slug}', [FrontendController::class, 'productview']);
+//product-list
+Route :: get('product-list',[FrontendController :: class,'productlistAjax'])->name('search.add');
+Route :: post('searchproduct',[FrontendController :: class,'searchProduct']);
+
 
 Auth::routes();
 Route::post('add-to-cart', [CartController::class, 'addProduct'])->name('cart.add');
@@ -60,7 +64,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('add-review/{product_slug}/userreview',[ReviewController::class,'add']);
     Route::post('add-review',[ReviewController::class,'create']);
-
+//edit-review
+Route::get('edit-review/{product_slug}/userreview',[ReviewController::class,'edit']);
+Route::put('update-review',[ReviewController::class,'update']);
 
     Route::get('view-order/{id}', [UserController::class, 'view']);
     Route::get('Wishlist', [WishlistController::class, 'index']);
