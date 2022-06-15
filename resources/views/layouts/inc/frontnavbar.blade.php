@@ -52,10 +52,10 @@
                   {{ Auth::user()->name }}
               </a>
               <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">
+              {{-- <a class="dropdown-item" href="#">
                   My Profile
               
-                 </a>
+                 </a> --}}
                  <a class="dropdown-item" href="{{url('my-orders')}}">
                   My Orders
               

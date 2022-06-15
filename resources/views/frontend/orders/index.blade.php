@@ -1,6 +1,6 @@
 @extends('layouts.front')
 @section('title')
-    My Orders
+My Orders
 @endsection
 @section('content')
     <div class="container">
@@ -35,14 +35,18 @@
                                 </tr>
                                 @endforeach
                             </tbody>
-                    
-                        </div>
+                        </table>
+                        
                     </div>
                 </div>
+            </div>
+        </div>
         
     </div>
 </div>
 @endsection
+
+
 @section('scripts')
     <script>
 

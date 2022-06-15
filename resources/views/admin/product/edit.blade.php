@@ -28,10 +28,10 @@
                         <input type="text" class="form-control" name="slug" value="{{ $products->slug }}">
                     </div>
 
-                    <div class="col-md-12 mb-3">
+                    {{-- <div class="col-md-12 mb-3">
                         <label for="">Small Description</label>
                         <textarea name="small_description" rows="3" class="form-control">{{ $products->small_description }}</textarea>
-                    </div>
+                    </div> --}}
 
                     <div class="col-md-12 mb-3">
                         <label for="">Description</label>
@@ -72,20 +72,20 @@
                         <label for="">Popular</label>
                         <input type="checkbox" name="popular" {{ $products->popular == '1' ? 'checked' : '' }}>
                     </div> --}}
-                    <div class="col-md-12 mb-3">
+                    {{-- <div class="col-md-12 mb-3">
                         <label for="">Meta Title</label>
                         <input type="text" class="form-control" name="meta_title" value="{{ $products->meta_title }}">
-                    </div>
-                    <div class="col-md-12 mb-3">
+                    </div> --}}
+                    {{-- <div class="col-md-12 mb-3">
                         <label for="">Meta Keywords</label>
                         <textarea name="meta_keywords" rows="3" class="form-control">{{ $products->meta_keywords }}</textarea>
-                    </div>
+                    </div> --}}
 
 
-                    <div class="col-md-12 mb-3">
+                    {{-- <div class="col-md-12 mb-3">
                         <label for="">Meta Description</label>
                         <textarea name="meta_description" rows="3" class="form-control">{{ $products->meta_description }}</textarea>
-                    </div>
+                    </div> --}}
                     @if ($products->image)
                         <img src="{{ asset('assets/uploads/products/' . $products->image) }}" alt="">
                     @endif
