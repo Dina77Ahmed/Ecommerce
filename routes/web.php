@@ -70,6 +70,8 @@ Route::put('update-review',[ReviewController::class,'update']);
 
     Route::get('view-order/{id}', [UserController::class, 'view']);
     Route::get('Wishlist', [WishlistController::class, 'index']);
+    Route::post('proceed-to-pay',[CheckoutController::class,'razorpaycheck'])->name('checkout.pay');;
+
 //add-review
 });
 

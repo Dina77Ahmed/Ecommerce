@@ -187,6 +187,8 @@
     <script src="{{ asset('frontend/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('frontend/js/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('frontend/js/custom.js') }}"></script>
+    <script src="{{ asset('frontend/js/checkout.js') }}"></script>
+
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script>
         var availableTags = [];
